@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page11</title>
+</head>
+
+<body>
+    <!------------------------------------------------------------------------------------------------------------------------------------>
+    <script>
+        function verify() {
+
+            /* var usn = document.getElementById('usn').value.length;
+             var pwd = document.getElementById('pwd').value.length;
+
+             if (usn != 0 && pwd != 0) {*/
+            var usn = document.getElementById('usn').value;
+            var pwd = document.getElementById('pwd').value;
+
+            if (usn.trim() != '' && pwd.trim() != '') {
+                window.localStorage.setItem("username", usn);
+                window.location.href = "page2.html";
+            } else
+                alert("you have to fill in the fields first");
+        }
+
+        function showpwd() {
+
+            var x = document.getElementById("pwd");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+    <!------------------------------------------------------------------------------------------------------------------------------------>
+    <form>
+        <fieldset>
+            <legend>login</legend>
+            <table cellpadding=10px>
+                <tr>
+                    <td>username</td>
+                    <td>
+                        <input type="text" name="username" id="usn" placeholder="login name" pattern="[a-zA-Z][a-zA-Z0-9-_.]{1,20}" title="letters and numbers only, no punctuation or special characters">
+                    </td>
+                </tr>
+                <tr>
+                    <td>password</td>
+                    <td>
+                        <input type="password" name="pwd" placeholder="password" id="pwd" pattern=".{8,}" title="Eight or more characters">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td><input type="checkbox" onclick="showpwd()">Show Password</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Login" onclick="verify()">
+                    </td>
+                    <td>
+                        <input type="reset" value="reset all informations ">
+
+                    </td>
+                </tr>
+
+            </table>
+        </fieldset>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page2</title>
+</head>
+
+<body>
+    <!------------------------------------------------------------------------------------------------------------------------------------>
+    <script>
+        /* window.addEventListener('load', () => {
+
+                                                                                                                            // Via Query parameters - GET
+                                                                                                                            const params = (new URL(document.location)).searchParams;
+                                                                                                                            //const name = params.get('name');
+                                                                                                                            const username = params.get('username');
+                                                                                                                            alert(username)
+                                                                                                                                // Via local Storage
+                                                                                                                                /* const name = localStorage.getItem('NAME');
+                                                                                                                                const surname = localStorage.getItem('SURNAME'); 
+
+                                                                                                                                const name = sessionStorage.getItem('NAME');
+                                                                                                                                const surname = sessionStorage.getItem('SURNAME');
+
+                                                                                                                                document.getElementById('result-name').innerHTML = name;
+                                                                                                                                document.getElementById('result-surname').innerHTML = surname;
+
+                                                                                                                })*/
+
+        function moy() {
+            var note1 = Number(document.getElementById('n1').value);
+            var note2 = Number(document.getElementById('n2').value);
+            var note3 = Number(document.getElementById('n3').value);
+            var moyenne = (note1 + note3 + note2) / 3;
+            mention(moyenne);
+        }
+
+        function mention(m) {
+            var r = localStorage.getItem("username");
+            var ma = Math.round(m * 100) / 100;
+            if (ma < 10) alert(r + " your avg " + ma + " /20 : is bad");
+            else {
+                if (ma < 14 && ma >= 10) alert(r + " your avg " + ma + " /20 : is pretty good");
+                else {
+                    if (ma < 18 && ma >= 14) alert(r + " your avg " + ma + " /20 : is good");
+                    else alert(r + " your avg " + ma + " /20 : is very good");
+                }
+            }
+        }
+    </script>
+    <!------------------------------------------------------------------------------------------------------------------------------------>
+    <form>
+        <fieldset>
+            <legend>Your degrees subjects school</legend>
+            <table cellpadding=10px>
+                <tr>
+                    <td><b>Math :</b></td>
+                    <td><input type="number" name="number" maxlength="20" placeholder="degree" id="n1"></td>
+                </tr>
+                <tr>
+                    <td><b>Computer Science :</b></td>
+                    <td><input type="number" name="number" maxlength="20" placeholder="degree" id="n2"></td>
+                </tr>
+                <tr>
+                    <td><b>Mecanic :</b></td>
+                    <td><input type="number" name="number" maxlength="20" placeholder="degree" id="n3"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="montion" onclick="moy()">
+                    </td>
+                    <td>
+                        <input type="reset" value="reset all degrees">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p><a href="page11.html" target="_self">logout</a></p>
+                    </td>
+            </table>
+        </fieldset>
+    </form>
+</body>
+
+</html>
