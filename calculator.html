@@ -30,22 +30,30 @@
                                                                                                                 })*/
 
         function moy() {
-            var note1 = Number(document.getElementById('n1').value);
-            var note2 = Number(document.getElementById('n2').value);
-            var note3 = Number(document.getElementById('n3').value);
-            var moyenne = (note1 + note3 + note2) / 3;
-            mention(moyenne);
+            var n1 = document.getElementById('n1').value;
+            var n2 = document.getElementById('n2').value;
+            var n3 = document.getElementById('n3').value;
+
+            if (n1 != '' && n2 != '' && n3 != '') {
+                var note1 = Number(n1);
+                var note2 = Number(n2);
+                var note3 = Number(n3);
+                if ((note1 >= 0 && note1 <= 20) && (note2 >= 0 && note2 <= 20) && (note3 >= 0 && note3 <= 20)) {
+                    var moyenne = (note1 + note3 + note2) / 3;
+                    mention(moyenne);
+                } else alert('you must enter grades between 0 and 20');
+            } else alert('you must enter grades');
         }
 
         function mention(m) {
             var r = localStorage.getItem("username");
             var ma = Math.round(m * 100) / 100;
-            if (ma < 10) alert(r + " your avg " + ma + " /20 : is bad");
+            if (ma < 10) alert(r + " your avg  " + ma + " /20   is bad");
             else {
-                if (ma < 14 && ma >= 10) alert(r + " your avg " + ma + " /20 : is pretty good");
+                if (ma < 14 && ma >= 10) alert(r + " your avg  " + ma + "/20   is pretty good");
                 else {
                     if (ma < 18 && ma >= 14) alert(r + " your avg " + ma + " /20 : is good");
-                    else alert(r + " your avg " + ma + " /20 : is very good");
+                    else alert(r + " your avg  " + ma + "/20   is very good");
                 }
             }
         }
@@ -53,19 +61,19 @@
     <!------------------------------------------------------------------------------------------------------------------------------------>
     <form>
         <fieldset>
-            <legend>Your degrees subjects school</legend>
+            <legend>your subjects school degrees</legend>
             <table cellpadding=10px>
                 <tr>
                     <td><b>Math :</b></td>
-                    <td><input type="number" name="number" maxlength="20" placeholder="degree" id="n1"></td>
+                    <td><input type="number" name="number" max="20" min="0" placeholder="degree" id="n1"></td>
                 </tr>
                 <tr>
                     <td><b>Computer Science :</b></td>
-                    <td><input type="number" name="number" maxlength="20" placeholder="degree" id="n2"></td>
+                    <td><input type="number" name="number" max="20" min="0" placeholder="degree" id="n2"></td>
                 </tr>
                 <tr>
                     <td><b>Mecanic :</b></td>
-                    <td><input type="number" name="number" maxlength="20" placeholder="degree" id="n3"></td>
+                    <td><input type="number" name="number" max="20" min="0" placeholder="degree" id="n3"></td>
                 </tr>
                 <tr>
                     <td>
